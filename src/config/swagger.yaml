@@ -1,0 +1,183 @@
+openapi: 3.0.0
+info:
+  title: Feedback site
+  description: Feedback app API
+  version: 0.1.9
+
+servers:
+  - url: "http://localhost:4001/api"
+    description: local server
+
+paths:
+  /feedbacks:
+    post:
+      tags:
+        - Feedbacks
+      requestBody:
+        description: Get all feedbacks
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                description:
+                  type: string
+                id:
+                  type: number
+            example:
+              title: good service
+              category: grossers
+              status: accepted
+              description: everything was in good time
+              id: 1500
+      responses:
+        "200":
+          description: Feedback was created successfully
+
+    get:
+      tags:
+        - Feedbacks
+      responses:
+        "200":
+          description: Successfully fetched feedbacks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+    put:
+      tags:
+        - Feedbacks
+      requestBody:
+        description: Update feedbacks
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                status:
+                  type: string
+                title:
+                  type: string
+                id:
+                  type: number
+            example:
+              description: food was delicious
+              status: high
+              title: food
+              id: 7a268a37-6cba-4bdf-9c39-b85fa90f3ac7
+      responses:
+        "200":
+          description: Feedback was updated successfully
+
+  /feedbacks/{id}:
+    delete:
+      tags:
+        - Feedbacks
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            example: 03782874-64ea-48db-8344-ac19aa0f53ca
+          required: true
+      responses:
+        "200":
+          description: Successfully Deleted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /categories:
+    get:
+      tags:
+        - Categories
+      responses:
+        "200":
+          description: Successfully fetched category's
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+    post:
+      tags:
+        - Categories
+      requestBody:
+        description: Get all categories
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                id:
+                  type: number
+            example:
+              name: Billing
+              id: 12
+      responses:
+        "200":
+          description: Category was created successfully
+
+    put:
+      tags:
+        - Categories
+      requestBody:
+        description: Update categories
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                id:
+                  type: number
+            example:
+              name: Medicine
+              id: 12
+      responses:
+        "200":
+          description: Category was updated successfully
+
+  /categories/{id}:
+    delete:
+      tags:
+        - Categories
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            example: 03782874-64ea-48db-8344-ac19aa0f53ca
+          required: true
+      responses:
+        "200":
+          description: Successfully Deleted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
