@@ -20,7 +20,7 @@ const feedbackSchema = new Schema({
     required: true,
   },
   id: {
-    type: Schema.Types.Number,
+    type: Schema.Types.String,
   },
 });
 

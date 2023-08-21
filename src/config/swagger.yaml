@@ -29,14 +29,11 @@ paths:
                   type: string
                 description:
                   type: string
-                id:
-                  type: number
             example:
               title: good service
               category: grossers
               status: accepted
-              description: everything was in good time
-              id: 1500
+              description: Service was extraordinary good
       responses:
         "200":
           description: Feedback was created successfully
@@ -72,12 +69,12 @@ paths:
                 title:
                   type: string
                 id:
-                  type: number
+                  type: string
             example:
               description: food was delicious
               status: high
               title: food
-              id: 7a268a37-6cba-4bdf-9c39-b85fa90f3ac7
+              id: c13b30ce-7655-4fcd-b116-8f9103b417c7
       responses:
         "200":
           description: Feedback was updated successfully
@@ -130,11 +127,8 @@ paths:
               properties:
                 name:
                   type: string
-                id:
-                  type: number
             example:
               name: Billing
-              id: 12
       responses:
         "200":
           description: Category was created successfully

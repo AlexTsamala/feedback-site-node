@@ -1,5 +1,5 @@
-import { request, response } from "express";
 import Feedback from "../models/feedback.js";
+import { v4 as uuidv4 } from "uuid";
 
 export const GetAllFeedbacks = async (request, response) => {
   const data = await Feedback.find();
@@ -8,8 +8,8 @@ export const GetAllFeedbacks = async (request, response) => {
 };
 
 export const CreateFeedback = async (request, response) => {
-  const { title, category, status, description, id } = request.body;
-
+  const { title, category, status, description } = request.body;
+  const id = uuidv4();
   await Feedback.create({
     title,
     category,

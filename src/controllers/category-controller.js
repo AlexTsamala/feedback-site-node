@@ -1,4 +1,5 @@
 import Category from "../models/category.js";
+import { v4 as uuidv4 } from "uuid";
 
 export const GetAllCategory = async (request, response) => {
   const data = await Category.find();
@@ -7,8 +8,8 @@ export const GetAllCategory = async (request, response) => {
 };
 
 export const CreateCategory = async (request, response) => {
-  const { name, id } = request.body;
-
+  const { name } = request.body;
+  const id = uuidv4();
   await Category.create({
     name,
     id,
