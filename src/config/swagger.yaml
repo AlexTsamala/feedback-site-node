@@ -7,7 +7,8 @@ info:
 servers:
   - url: "http://localhost:4001/api"
     description: local server
-
+  - url: "https://feedback-site-node-production.up.railway.app/api"
+    description: Production server
 paths:
   /feedbacks:
     post:
