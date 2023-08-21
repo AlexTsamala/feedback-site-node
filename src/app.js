@@ -21,6 +21,6 @@ app.use("/api", categoryRouter);
 app.use("/", ...swaggerMiddleware());
 app.use(ErrorHandler);
 
-app.listen(4001, () => {
+app.listen(process.env.PORT || 4001, () => {
   console.log("started server on port 4001");
 });
