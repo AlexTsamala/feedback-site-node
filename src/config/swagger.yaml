@@ -176,3 +176,76 @@ paths:
                 type: array
                 items:
                   type: string
+
+  /users:
+    post:
+      tags:
+        - Users
+      requestBody:
+        description: Create user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                name:
+                  type: string
+                surname:
+                  type: string
+                password:
+                  type: string
+            example:
+              username: alex7
+              name: alexander
+              surname: Williams
+              password: secretWord58
+      responses:
+        "200":
+          description: User was created successfully
+
+  /users/log-in:
+    post:
+      tags:
+        - Users
+      requestBody:
+        description: Log in user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+            example:
+              username: alex7
+              password: secretWord58
+      responses:
+        "200":
+          description: User was logged in successfully
+
+  /users/{id}:
+    delete:
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            example: 03782874-64ea-48db-8344-ac19aa0f53ca
+          required: true
+      responses:
+        "200":
+          description: Successfully Deleted
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string

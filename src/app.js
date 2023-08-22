@@ -7,6 +7,7 @@ import swaggerMiddleware from "./middlewares/swagger-middleware.js";
 import feedbackRouter from "./router/feedback-router.js";
 import ErrorHandler from "./middlewares/error-handler.js";
 import categoryRouter from "./router/category-router.js";
+import usersRouter from "./router/users-route.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ connectToMongo();
 
 app.use("/api", feedbackRouter);
 app.use("/api", categoryRouter);
+app.use("/api", usersRouter);
 
 app.use("/", ...swaggerMiddleware());
 app.use(ErrorHandler);
